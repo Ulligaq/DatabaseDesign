@@ -1,0 +1,27 @@
+/****** Object:  Table [kh184217].[ITEM]    Script Date: 5/10/2024 12:47:26 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [kh184217].[ITEM](
+	[ItemID] [int] NOT NULL,
+	[ItemName] [varchar](255) NOT NULL,
+	[Price] [decimal](10, 2) NOT NULL,
+	[ItemType] [varchar](11) NOT NULL,
+	[StoreID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ItemID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [kh184217].[ITEM]  WITH CHECK ADD FOREIGN KEY([StoreID])
+REFERENCES [kh184217].[STORE] ([StoreID])
+GO
+
+ALTER TABLE [kh184217].[ITEM]  WITH CHECK ADD CHECK  (([ItemType]='Shirt' OR [ItemType]='Concession' OR [ItemType]='Merch'))
+GO
+

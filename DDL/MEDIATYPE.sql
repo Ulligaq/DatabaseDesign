@@ -1,0 +1,27 @@
+/****** Object:  Table [kh184217].[MEDIATYPE]    Script Date: 5/10/2024 12:48:21 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [kh184217].[MEDIATYPE](
+	[MediaID] [int] NOT NULL,
+	[MovieID] [int] NULL,
+	[Format] [varchar](50) NULL,
+	[Distributer] [varchar](100) NULL,
+	[AspectRatio] [varchar](20) NULL,
+	[MPAA] [varchar](10) NULL,
+	[Genre] [varchar](50) NULL,
+	[RunTime] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MediaID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [kh184217].[MEDIATYPE]  WITH CHECK ADD FOREIGN KEY([MovieID])
+REFERENCES [kh184217].[MOVIE] ([MovieID])
+GO
+

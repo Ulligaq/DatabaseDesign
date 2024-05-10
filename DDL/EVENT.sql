@@ -1,0 +1,26 @@
+/****** Object:  Table [kh184217].[EVENT]    Script Date: 5/10/2024 12:47:11 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [kh184217].[EVENT](
+	[EventID] [int] NOT NULL,
+	[CineplexID] [int] NULL,
+	[Name] [varchar](255) NULL,
+	[Organization] [varchar](100) NULL,
+	[Description] [varchar](500) NULL,
+	[Date] [date] NULL,
+	[Time] [time](7) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EventID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [kh184217].[EVENT]  WITH CHECK ADD FOREIGN KEY([CineplexID])
+REFERENCES [kh184217].[CINEPLEX] ([CineplexID])
+GO
+

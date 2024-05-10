@@ -1,0 +1,22 @@
+/****** Object:  Table [kh184217].[STORE]    Script Date: 5/10/2024 12:50:37 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [kh184217].[STORE](
+	[StoreID] [int] NOT NULL,
+	[Owner] [varchar](100) NULL,
+	[Address] [varchar](255) NULL,
+	[Has_Cineplex] [varchar](3) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[StoreID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [kh184217].[STORE]  WITH CHECK ADD CHECK  (([Has_Cineplex]='No' OR [Has_Cineplex]='Yes'))
+GO
+
